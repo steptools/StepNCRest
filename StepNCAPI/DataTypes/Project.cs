@@ -30,9 +30,9 @@ namespace StepNCAPI.Modules
             proj.path = path;
             proj.id = new DirectoryInfo(path).Name;
             proj.hasCadjs = Directory.Exists(cadjsPath);
-            if (proj.hasCadjs) proj.cadjsPath = cadjsPath;
+            if (proj.hasCadjs) proj.cadjsPath = Path.Combine("/files", proj.id, "cadjs").Replace("\\","/");
             proj.hasModel = Directory.Exists(modelPath);
-            if (proj.hasCadjs) proj.cadjsPath = modelPath;
+            if (proj.hasCadjs) proj.cadjsPath = Path.Combine("/files", proj.id, "model").Replace("\\", "/");
 
             return proj;
         }

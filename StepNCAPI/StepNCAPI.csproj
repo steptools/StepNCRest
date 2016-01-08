@@ -45,6 +45,10 @@
     <Reference Include="Nancy.Hosting.Self">
       <HintPath>..\packages\Nancy.Hosting.Self.1.4.1\lib\net40\Nancy.Hosting.Self.dll</HintPath>
     </Reference>
+    <Reference Include="stepnc_x64, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1cb0c76fde15bbda, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\STEP Tools\STEP-NC Machine\stepnc_x64.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -53,9 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Modules\Project.cs" />
+    <Compile Include="DataTypes\Executable.cs" />
+    <Compile Include="DataTypes\Project.cs" />
+    <Compile Include="DataTypes\SelectiveExecutable.cs" />
     <Compile Include="Modules\FileModule.cs" />
     <Compile Include="Modules\IndexModule.cs" />
+    <Compile Include="Modules\StepInterface.cs" />
+    <Compile Include="Modules\StepModule.cs" />
+    <Compile Include="DataTypes\WorkplanExecutable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -65,8 +74,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="icon.png" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
