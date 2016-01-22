@@ -1,6 +1,6 @@
 ﻿using Nancy;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.Modules
 {
     public class IndexModule : NancyModule
     {

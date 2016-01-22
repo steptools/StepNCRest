@@ -1,8 +1,8 @@
-﻿using StepNCAPI.DataTypes;
+﻿using StepNCRest.DataTypes;
 using System;
 using System.Collections.Generic;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.Modules
 {
     public class StepInterface
     {

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.Modules
 {
     public class StepModule : NancyModule
     {

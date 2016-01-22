@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Nancy.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.Modules
 {
+    public class ProjectConfigFile
+    {
+        public String name;
+    }
+
     public class Project
     {
         public String path;
         public String cadjsPath;
         public String modelPath;
         public String id;
+        public String name;
         public bool hasCadjs;
         public bool hasModel;
 
@@ -33,6 +40,12 @@ namespace StepNCAPI.Modules
             if (proj.hasCadjs) proj.cadjsPath = Path.Combine("/files", proj.id, "cadjs").Replace("\\","/");
             proj.hasModel = Directory.Exists(modelPath);
             if (proj.hasCadjs) proj.cadjsPath = Path.Combine("/files", proj.id, "model").Replace("\\", "/");
+
+            var serializer = new JavaScriptSerializer();
+            var configFileContents = File.ReadAllText(Path.Combine(path, "config.json"));
+            var configFile = serializer.Deserialize<ProjectConfigFile>(configFileContents);
+
+            proj.name = configFile.name;
 
             return proj;
         }

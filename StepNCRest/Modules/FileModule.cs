@@ -5,7 +5,7 @@ using System;
 using System.Configuration;
 using System.IO;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.Modules
 {
     public class FileModule : NancyModule
     {

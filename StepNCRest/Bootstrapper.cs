@@ -1,7 +1,9 @@
 ﻿using Nancy;
+using Nancy.Bootstrapper;
 using Nancy.Conventions;
+using Nancy.TinyIoc;
 
-namespace StepNCAPI
+namespace StepNCRest
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {

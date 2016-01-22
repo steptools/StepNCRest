@@ -1,16 +1,15 @@
-﻿using StepNCAPI.DataTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StepNCAPI.Modules
+namespace StepNCRest.DataTypes
 {
-    public class WorkplanExecutable : ParentExecutable
+    class SelectiveExecutable : ParentExecutable
     {
         public String name { get; set; }
+        public string type = "selective";
         public long id { get; set; }
-        public string type = "workplan";
         public List<Executable> children { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Nancy.Hosting.Self;
 
-namespace StepNCAPI
+namespace StepNCRest
 {
     class Program
     {
