@@ -10,13 +10,28 @@ namespace StepNCRest.Modules
     public class StepModule : NancyModule
     {
         public static Dictionary<String, StepInterface> stepInterfaces = new Dictionary<String, StepInterface>();
+        private static System.Threading.Mutex mut = new System.Threading.Mutex();
 
+        private delegate Response CB(StepInterface si);
+        private static Response Mutexify(string id,CB action)
+        {
+            mut.WaitOne();
+            var si = GetStepInterface(id);
+            var rtn = action(si);
+            mut.ReleaseMutex();
+            return rtn;
+        }
         public StepModule(){
 
             Get["/projects/{id}/plan"] = parameters =>
             {
-                var si = GetStepInterface((string)parameters.id);
-                return Response.AsJson(si.GetMainWorkplan());
+                return Mutexify((string)parameters.id,
+                    sti=>
+                    {
+                        return Response.AsJson(sti.GetMainWorkplan());
+                    });
+            };
+
             };
 
         }
