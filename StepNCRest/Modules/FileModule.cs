@@ -11,7 +11,8 @@ namespace StepNCRest.Modules
     {
         public FileModule()
         {
-            GenericFileResponse.SafePaths.Add(Properties.Settings.Default.projectPath);
+            if (!GenericFileResponse.SafePaths.Contains(Properties.Settings.Default.projectPath))
+                GenericFileResponse.SafePaths.Add(Properties.Settings.Default.projectPath);
 
             // Returns list of projects
             Get["/projects"] = parameters =>
