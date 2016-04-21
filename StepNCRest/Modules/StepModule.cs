@@ -9,7 +9,7 @@ namespace StepNCRest.Modules
 {
     public class StepModule : NancyModule
     {
-        public Dictionary<String, StepInterface> stepInterfaces = new Dictionary<String, StepInterface>();
+        public static Dictionary<String, StepInterface> stepInterfaces = new Dictionary<String, StepInterface>();
 
         public StepModule(){
 
@@ -21,7 +21,7 @@ namespace StepNCRest.Modules
 
         }
 
-        public StepInterface GetStepInterface(string id)
+        public static StepInterface GetStepInterface(string id)
         {
             if (stepInterfaces.ContainsKey(id)) return stepInterfaces[id];
             StepInterface stepInterface = new StepInterface(Path.Combine(Properties.Settings.Default.projectPath, id, "model/model.stpnc"));
