@@ -32,6 +32,16 @@ namespace StepNCRest.Modules
                     });
             };
 
+            Get["/projects/{id}/plan/{wsid}"] = parameters =>
+            {
+                return Mutexify((string)parameters.id,
+                    sti =>
+                    {
+                        DataTypes.GenericExecutable rtn = sti.GetSpecificWorkplan(parameters.wsid);
+                        return Response.AsJson(rtn);
+                    });
+            };
+
             Get["/projects/{id}/geometry"] = parameters =>
             {
                 return Mutexify((string)parameters.id,

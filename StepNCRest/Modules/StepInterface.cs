@@ -55,6 +55,10 @@ namespace StepNCRest.Modules
             if (rootWorkplan == null) rootWorkplan = (WorkplanExecutable) ExecutableFactory.fromId(finder, finder.GetMainWorkplan());
             return rootWorkplan;
         }
+        public GenericExecutable GetSpecificWorkplan(long wpid)
+        {
+            return (GenericExecutable) ExecutableFactory.fromId(finder, wpid);
+        }
 
     }
 }
