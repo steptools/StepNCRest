@@ -37,8 +37,8 @@ namespace StepNCRest.Modules
                 return Mutexify((string)parameters.id,
                     sti =>
                     {
-                        DataTypes.GenericExecutable rtn = sti.GetSpecificWorkplan(parameters.wsid);
-                        return Response.AsJson(rtn);
+                        var rtn = sti.GetSpecificWorkplan(parameters.wsid);
+                        return Response.AsJson(rtn as DataTypes.Executable);
                     });
             };
 
